@@ -24,7 +24,7 @@ COPY --from=planner /usr/src/app/recipe.json recipe.json
 RUN cargo chef cook --release --target x86_64-unknown-linux-musl --recipe-path recipe.json
 COPY . .
 RUN cargo build --release --target x86_64-unknown-linux-musl && \
-    strip target/x86_64-unknown-linux-musl/release/attendance-service
+    strip target/x86_64-unknown-linux-musl/release/contizu-zelivery
 
 # -------------
 # Runtime stage
@@ -35,7 +35,7 @@ WORKDIR /app
 LABEL org.opencontainers.image.description="Attendance service"
 
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
-COPY --from=builder /usr/src/app/target/x86_64-unknown-linux-musl/release/attendance-service .
+COPY --from=builder /usr/src/app/target/x86_64-unknown-linux-musl/release/contizu-zelivery .
 
 EXPOSE 3000
 USER 1000:1000
