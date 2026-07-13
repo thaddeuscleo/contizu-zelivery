@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: core-api
+  name: core-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: core-api
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: core-api
+    spec:
+      containers:
+        - image: busybox
+          name: busybox
+          ports:
+            - containerPort: 3000
+          resources: {}
+status: {}

@@ -1,0 +1,8 @@
+k8s/
+istio/
+scripts/
+target/
+.github/
+
+mise.toml
+README.md
