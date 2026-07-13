@@ -12,5 +12,13 @@ spec:
     - route:
         - destination:
             host: contizu-api.contizu.svc.cluster.local
+            subset: v1
             port:
               number: 80
+          weight: 80
+        - destination:
+            host: contizu-api.contizu.svc.cluster.local
+            subset: v3
+            port:
+              number: 80
+          weight: 20

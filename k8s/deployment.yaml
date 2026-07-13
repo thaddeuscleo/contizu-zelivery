@@ -2,22 +2,50 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: contizu
+  name: contizu-api-v1
   labels:
     app: contizu-api
-  name: contizu-api
+    version: v1
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: contizu-api
+      version: v1
   template:
     metadata:
       labels:
         app: contizu-api
+        version: v1
     spec:
       containers:
         - image: ghcr.io/thaddeuscleo/contizu-zelivery:0.0.2
           name: contizu-api
           ports:
             - containerPort: 3000
-          resources: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: contizu
+  name: contizu-api-v3
+  labels:
+    app: contizu-api
+    version: v3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contizu-api
+      version: v3
+  template:
+    metadata:
+      labels:
+        app: contizu-api
+        version: v3
+    spec:
+      containers:
+        - image: ghcr.io/thaddeuscleo/contizu-zelivery:0.0.3
+          name: contizu-api
+          ports:
+            - containerPort: 3000
