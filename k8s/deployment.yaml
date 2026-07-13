@@ -1,24 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: contizu
   labels:
-    app: core-api
-  name: core-api
+    app: contizu-api
+  name: contizu-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: core-api
-  strategy: {}
+      app: contizu-api
   template:
     metadata:
       labels:
-        app: core-api
+        app: contizu-api
     spec:
       containers:
-        - image: busybox
-          name: busybox
+        - image: ghcr.io/thaddeuscleo/contizu-zelivery:0.0.2
+          name: contizu-api
           ports:
             - containerPort: 3000
           resources: {}
-status: {}

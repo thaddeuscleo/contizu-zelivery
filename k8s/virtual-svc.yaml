@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: contizu-api
+  namespace: contizu
+spec:
+  hosts:
+    - "contizu.local"
+  gateways:
+    - contizu-gateway
+  http:
+    - route:
+        - destination:
+            host: contizu-api.contizu.svc.cluster.local
+            port:
+              number: 80
