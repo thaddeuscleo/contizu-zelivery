@@ -1,3 +1,3 @@
 pub async fn root() -> &'static str {
-    "Hello, World!"
+    "Hello, World! from Istio (0.0.3)"
 }

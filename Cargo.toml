@@ -1,9 +1,9 @@
 [package]
 name = "contizu-zelivery"
-version = "0.0.1"
+version = "0.0.3"
 edition = "2024"
 
-[dependencies]  
+[dependencies]
 axum = "0.8.9"
 serde = { version = "1.0.228", features = ["derive"] }
 tokio = { version = "1.52.3", features = ["full"] }
