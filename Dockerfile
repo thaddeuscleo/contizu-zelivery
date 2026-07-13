@@ -32,7 +32,7 @@ RUN cargo build --release --target x86_64-unknown-linux-musl && \
 FROM scratch
 WORKDIR /app
 
-LABEL org.opencontainers.image.description="Attendance service"
+LABEL org.opencontainers.image.description="contizu-zelivery-api mock"
 
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /usr/src/app/target/x86_64-unknown-linux-musl/release/contizu-zelivery .
@@ -42,4 +42,4 @@ USER 1000:1000
 ENV RUST_LOG=info \
     RUST_BACKTRACE=1
 
-ENTRYPOINT ["./attendance-service"]
+ENTRYPOINT ["./contizu-zelivery"]
